@@ -37,13 +37,6 @@ export default function ProductoDetalle() {
     setOpenSection(openSection === section ? '' : section);
   };
 
-  const formatPrice = (price) => {
-    return new Intl.NumberFormat('es-MX', {
-      style: 'currency',
-      currency: 'MXN',
-    }).format(price);
-  };
-
   if (!product) {
     return (
       <div className="min-h-screen flex items-center justify-center font-bold uppercase tracking-widest text-sm text-gray-400">
@@ -99,15 +92,9 @@ export default function ProductoDetalle() {
               {product.category}
             </span>
 
-            <h1 className="text-3xl sm:text-4xl font-black text-gray-900 mb-4 leading-[1.1] uppercase tracking-tight">
+            <h1 className="text-3xl sm:text-4xl font-black text-gray-900 mb-6 leading-[1.1] uppercase tracking-tight">
               {product.name}
             </h1>
-
-            <div className="flex items-center gap-4 mb-4">
-              <p className="text-3xl font-bold text-black">
-                {formatPrice(product.price)}
-              </p>
-            </div>
 
             <div className="mb-8">
               <span

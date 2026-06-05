@@ -4,8 +4,6 @@ import { Link, useSearchParams } from 'react-router-dom';
 const CATEGORIES = ['Accesorios', 'Cardio', 'Fuerza'];
 const SORT_OPTIONS = [
   { value: 'default', label: 'Más recientes' },
-  { value: 'price_asc', label: 'Menor precio' },
-  { value: 'price_desc', label: 'Mayor precio' },
   { value: 'name', label: 'A - Z' },
 ];
 
@@ -36,14 +34,9 @@ export default function Tienda() {
   const filtered = products
     .filter(p => selectedCategories.length === 0 || selectedCategories.includes(p.category))
     .sort((a, b) => {
-      if (sort === 'price_asc') return a.price - b.price;
-      if (sort === 'price_desc') return b.price - a.price;
       if (sort === 'name') return a.name.localeCompare(b.name);
       return 0;
     });
-
-  const formatPrice = (price) =>
-    new Intl.NumberFormat('es-MX', { style: 'currency', currency: 'MXN' }).format(price);
 
   return (
     <div className="min-h-screen bg-white">
@@ -204,10 +197,7 @@ export default function Tienda() {
                       <span className="text-[10px] font-bold uppercase tracking-widest text-gray-400 mb-1.5">{product.category}</span>
                       <h3 className="text-sm font-black uppercase tracking-wide text-gray-900 mb-2 line-clamp-2 leading-snug">{product.name}</h3>
                       <p className="text-gray-400 text-xs font-light leading-relaxed mb-4 line-clamp-2 flex-1">{product.description}</p>
-                      <div className="flex items-center justify-between mt-auto pt-3 border-t border-gray-50">
-                        <span className="text-lg font-black text-black">
-                          {formatPrice(product.price)}
-                        </span>
+                      <div className="flex items-center justify-end mt-auto pt-3 border-t border-gray-50">
                         <span className="text-[10px] font-bold uppercase tracking-widest text-gray-400 group-hover:text-black transition-colors">
                           Ver detalles →
                         </span>

@@ -14,20 +14,20 @@ export default async function handler(req, res) {
     }
 
     if (req.method === 'POST') {
-      const { name, description, price, image_url, category, features, stock_status } = req.body;
+      const { name, description, image_url, category, features, stock_status } = req.body;
       const newProduct = await sql`
-        INSERT INTO products (name, description, price, image_url, category, features, stock_status)
-        VALUES (${name}, ${description}, ${price}, ${image_url}, ${category}, ${features}, ${stock_status})
+        INSERT INTO products (name, description, image_url, category, features, stock_status)
+        VALUES (${name}, ${description}, ${image_url}, ${category}, ${features}, ${stock_status})
         RETURNING *
       `;
       return res.status(201).json(newProduct[0]);
     }
 
     if (req.method === 'PUT') {
-      const { id, name, description, price, image_url, category, features, stock_status } = req.body;
+      const { id, name, description, image_url, category, features, stock_status } = req.body;
       const updatedProduct = await sql`
         UPDATE products 
-        SET name = ${name}, description = ${description}, price = ${price}, 
+        SET name = ${name}, description = ${description}, 
             image_url = ${image_url}, category = ${category}, features = ${features}, 
             stock_status = ${stock_status}
         WHERE id = ${id}

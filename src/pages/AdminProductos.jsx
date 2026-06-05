@@ -4,7 +4,7 @@ import { useNavigate } from 'react-router-dom';
 export default function AdminProductos() {
   const [products, setProducts] = useState([]);
   const [form, setForm] = useState({ 
-    id: null, name: '', description: '', price: '', category: 'Accesorios', 
+    id: null, name: '', description: '', category: 'Accesorios', 
     image_url: '', features: '', stock_status: 'disponible' 
   });
   const [imageFile, setImageFile] = useState(null);
@@ -87,7 +87,6 @@ export default function AdminProductos() {
       id: product.id,
       name: product.name || '',
       description: product.description || '',
-      price: product.price || '',
       category: product.category || 'Accesorios',
       image_url: product.image_url || '',
       features: product.features || '',
@@ -120,7 +119,7 @@ export default function AdminProductos() {
   };
 
   const resetForm = () => {
-    setForm({ id: null, name: '', description: '', price: '', category: 'Accesorios', image_url: '', features: '', stock_status: 'disponible' });
+    setForm({ id: null, name: '', description: '', category: 'Accesorios', image_url: '', features: '', stock_status: 'disponible' });
     removeImagePreview();
   };
 
@@ -145,11 +144,6 @@ export default function AdminProductos() {
               <label className="text-xs font-bold uppercase text-gray-500 tracking-wider">Nombre del producto</label>
               <input type="text" value={form.name} onChange={e => setForm({...form, name: e.target.value})} required className="px-4 py-3 bg-gray-50 border border-gray-200 rounded-lg focus:outline-none focus:ring-1 focus:ring-black focus:border-black transition-all text-sm text-gray-800" />
             </div>
-            
-            <div className="flex flex-col gap-2">
-              <label className="text-xs font-bold uppercase text-gray-500 tracking-wider">Precio (MXN)</label>
-              <input type="number" step="0.01" value={form.price} onChange={e => setForm({...form, price: e.target.value})} required className="px-4 py-3 bg-gray-50 border border-gray-200 rounded-lg focus:outline-none focus:ring-1 focus:ring-black focus:border-black transition-all text-sm text-gray-800" />
-            </div>
 
             <div className="flex flex-col gap-2">
               <label className="text-xs font-bold uppercase text-gray-500 tracking-wider">Estado de Stock</label>
@@ -164,7 +158,7 @@ export default function AdminProductos() {
               </select>
             </div>
 
-            <div className="flex flex-col gap-2">
+            <div className="flex flex-col gap-2 md:col-span-2">
               <label className="text-xs font-bold uppercase text-gray-500 tracking-wider">Categoría</label>
               <select value={form.category} onChange={e => setForm({...form, category: e.target.value})} className="px-4 py-3 bg-gray-50 border border-gray-200 rounded-lg focus:outline-none focus:ring-1 focus:ring-black focus:border-black transition-all text-sm text-gray-800 cursor-pointer appearance-none">
                 <option value="Accesorios">Accesorios</option>
@@ -229,7 +223,6 @@ export default function AdminProductos() {
                 <th className="px-6 py-5 text-xs font-bold uppercase tracking-widest text-gray-500 w-24">Imagen</th>
                 <th className="px-6 py-5 text-xs font-bold uppercase tracking-widest text-gray-500">Producto</th>
                 <th className="px-6 py-5 text-xs font-bold uppercase tracking-widest text-gray-500">Categoría</th>
-                <th className="px-6 py-5 text-xs font-bold uppercase tracking-widest text-gray-500">Precio</th>
                 <th className="px-6 py-5 text-xs font-bold uppercase tracking-widest text-gray-500">Estado</th>
                 <th className="px-6 py-5 text-xs font-bold uppercase tracking-widest text-gray-500 text-right">Acciones</th>
               </tr>
@@ -246,7 +239,6 @@ export default function AdminProductos() {
                   <td className="px-6 py-4 text-sm text-gray-500">
                     <span className="bg-gray-100 text-gray-600 px-3 py-1 rounded-full text-xs font-medium">{product.category}</span>
                   </td>
-                  <td className="px-6 py-4 font-bold text-sm text-gray-900">${product.price}</td>
                   <td className="px-6 py-4">
                     <span className={`text-xs font-bold uppercase px-2 py-1 rounded ${
                       product.stock_status === 'disponible' ? 'bg-green-100 text-green-700' :
