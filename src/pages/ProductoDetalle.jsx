@@ -31,23 +31,25 @@ export default function ProductoDetalle() {
 
   return (
     <div className="bg-white min-h-screen pb-24">
-      {/* Breadcrumb — texto completo, sin truncar, sin uppercase forzado */}
+      
+      {/* Breadcrumb — Corregido para evitar que el texto se corte a la mitad */}
       <div className="border-b border-gray-100 bg-gray-50/50">
         <div className="max-w-7xl mx-auto px-6 py-4">
-          <nav className="flex flex-wrap items-center gap-2 text-xs font-medium text-gray-500">
-            <Link to="/" className="hover:text-black transition-colors uppercase tracking-wider">
+          <nav className="flex flex-wrap items-center gap-2 text-xs font-medium text-gray-500 uppercase tracking-wider">
+            <Link to="/" className="hover:text-black transition-colors">
               Inicio
             </Link>
             <span className="text-gray-300">/</span>
-            <Link to="/tienda" className="hover:text-black transition-colors uppercase tracking-wider">
+            <Link to="/tienda" className="hover:text-black transition-colors">
               Tienda
             </Link>
             <span className="text-gray-300">/</span>
-            <span className="uppercase tracking-wider text-gray-500">
+            <span className="hover:text-black transition-colors cursor-default">
               {product.category}
             </span>
             <span className="text-gray-300">/</span>
-            <span className="text-black font-bold">
+            {/* Se eliminó 'truncate' y 'max-w' para que el texto siempre sea visible */}
+            <span className="text-black font-bold whitespace-normal break-words">
               {product.name}
             </span>
           </nav>
@@ -97,28 +99,7 @@ export default function ProductoDetalle() {
               </span>
             </div>
 
-            {/* Botón WhatsApp */}
-            <div className="bg-gray-50 p-6 rounded-xl border border-gray-100 mb-8">
-              <p className="text-xs font-bold uppercase tracking-widest text-gray-400 mb-4">
-                ¿Te interesa este equipo?
-              </p>
-              <a
-                href={`https://wa.me/5214462000666?text=Hola%20INFINITÉ%2C%20me%20interesa%20el%20producto%3A%20${encodeURIComponent(product.name)}`}
-                target="_blank"
-                rel="noopener noreferrer"
-                className={`w-full px-8 py-4 rounded-lg text-sm font-bold uppercase tracking-widest transition-all shadow-lg flex items-center justify-center gap-3 ${
-                  product.stock_status === 'agotado'
-                    ? 'bg-gray-300 text-gray-500 cursor-not-allowed pointer-events-none'
-                    : 'bg-black text-white hover:bg-gray-800 shadow-black/20 group'
-                }`}
-              >
-                <svg className="w-5 h-5 group-hover:scale-110 transition-transform" fill="currentColor" viewBox="0 0 24 24">
-                  <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/>
-                  <path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm0 22C6.477 22 2 17.523 2 12S6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/>
-                </svg>
-                {product.stock_status === 'agotado' ? 'Producto Agotado' : 'Consultar por WhatsApp'}
-              </a>
-            </div>
+            {/* Los botones de cotización de WhatsApp fueron eliminados de esta sección */}
 
             {/* Badges */}
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-10 py-6 border-y border-gray-100">
