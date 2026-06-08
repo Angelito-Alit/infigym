@@ -60,8 +60,8 @@ export default function Footer() {
             <h4 className="text-[10px] font-black uppercase tracking-[0.3em] text-gray-300 mb-5">Legal</h4>
             <nav className="flex flex-col gap-3">
               {[
-                { to: '/terminos', label: 'Términos y Condiciones' },
-                { to: '/privacidad', label: 'Política de Privacidad' },
+                { to: '/#', label: 'Términos y Condiciones' },
+                { to: '/#', label: 'Política de Privacidad' },
               ].map(({ to, label }) => (
                 <Link
                   key={to}
@@ -97,7 +97,7 @@ export default function Footer() {
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
                   </svg>
                 </span>
-                +52 1 446 200 0666
+                +52 1 813 894 0867
               </a>
               <div className="flex items-start gap-3 text-sm text-gray-300">
                 <span className="w-8 h-8 border border-gray-700 flex items-center justify-center flex-shrink-0 mt-0.5">
