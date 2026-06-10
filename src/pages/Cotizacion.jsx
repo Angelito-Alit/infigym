@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 
 export default function Cotizacion() {
   const [quoteItems, setQuoteItems] = useState([]);
-  const whatsappNumber = "5214462000666";
+  const whatsappNumber = "5218138940867";
 
   useEffect(() => {
     const items = JSON.parse(localStorage.getItem('quote') || '[]');

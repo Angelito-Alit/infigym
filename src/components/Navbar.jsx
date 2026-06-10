@@ -32,7 +32,7 @@ export default function Navbar() {
 
             <div className="flex items-center gap-6 w-1/3">
               <a
-                href="tel:+5214462000666"
+                href="tel:+5218138940867"
                 className="hidden md:flex items-center gap-2 text-gray-500 hover:text-black transition-colors group"
               >
                 <span className="w-8 h-8 rounded-full bg-gray-100 group-hover:bg-black group-hover:text-white transition-all flex items-center justify-center flex-shrink-0">
@@ -123,7 +123,7 @@ export default function Navbar() {
             ))}
           </nav>
           <div className="mt-auto pb-10">
-            <a href="tel:+5214462000666" className="text-sm text-gray-400">+52 1 81 3894 0867</a>
+            <a href="tel:+5218138940867" className="text-sm text-gray-400">+52 1 81 3894 0867</a>
           </div>
         </div>
       )}
